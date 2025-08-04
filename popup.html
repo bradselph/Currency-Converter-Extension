@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Currency Converter</title>
+  <style>
+    @import url("style.css");
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <h2>Currency Converter</h2>
+    <label class="toggle-switch">
+      <input type="checkbox" id="toggleExtension" checked>
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div id="status" class="status enabled">
+    Extension is active and monitoring for currencies
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="overview">Overview</button>
+    <button class="tab" data-tab="settings">Settings</button>
+    <button class="tab" data-tab="about">About</button>
+  </div>
+
+  <div id="loading" class="loading" style="display: none;">
+    Loading page statistics...
+  </div>
+
+  <div id="overview-tab" class="tab-content active">
+    <div class="stats">
+      <div class="stat-row">
+        <span class="stat-label">Conversions found:</span>
+        <span class="stat-value" id="conversionsCount">0</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Total converted:</span>
+        <span class="stat-value" id="totalCount">0</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Target currency:</span>
+        <span class="stat-value" id="targetCurrency">USD</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Page status:</span>
+        <span class="stat-value" id="pageStatus">Scanning...</span>
+      </div>
+    </div>
+
+    <div class="currencies" id="currenciesSection" style="display: none;">
+      <h3>Currencies detected:</h3>
+      <div class="currency-list" id="currencyList"></div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" id="rescanBtn">Rescan Page</button>
+      <button class="btn btn-secondary" id="refreshBtn">Refresh Stats</button>
+    </div>
+  </div>
+
+  <div id="settings-tab" class="tab-content">
+    <div class="settings">
+      <div class="setting-group">
+        <label class="setting-label" for="targetCurrencySelect">Target Currency</label>
+        <select id="targetCurrencySelect" class="setting-input">
+          <option value="USD">USD - US Dollar</option>
+          <option value="EUR">EUR - Euro</option>
+          <option value="GBP">GBP - British Pound</option>
+          <option value="JPY">JPY - Japanese Yen</option>
+          <option value="CAD">CAD - Canadian Dollar</option>
+          <option value="AUD">AUD - Australian Dollar</option>
+          <option value="CHF">CHF - Swiss Franc</option>
+          <option value="CNY">CNY - Chinese Yuan</option>
+          <option value="INR">INR - Indian Rupee</option>
+          <option value="KRW">KRW - South Korean Won</option>
+          <option value="RUB">RUB - Russian Ruble</option>
+        </select>
+        <div class="setting-help">Choose which currency to convert to</div>
+      </div>
+
+      <div class="setting-group">
+        <label class="setting-label" for="exchangerateApiKey">ExchangeRate-API Key (Optional)</label>
+        <input type="password" id="exchangerateApiKey" class="setting-input" placeholder="Enter your API key">
+        <div class="setting-help">Get free API key from <a href="https://www.exchangerate-api.com/"
+            target="_blank">exchangerate-api.com</a></div>
+      </div>
+
+      <div class="setting-group">
+        <label class="setting-label" for="freecurrencyApiKey">FreeCurrency API Key (Optional)</label>
+        <input type="password" id="freecurrencyApiKey" class="setting-input" placeholder="Enter your API key">
+        <div class="setting-help">Get free API key from <a href="https://freecurrencyapi.com/"
+            target="_blank">freecurrencyapi.com</a></div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" id="saveSettingsBtn">Save Settings</button>
+      <button class="btn btn-secondary" id="resetSettingsBtn">Reset</button>
+    </div>
+  </div>
+
+
+<div id="about-tab" class="tab-content">
+  <div class="about">
+    <div class="about-section">
+      <h3>Currency Converter Extension</h3>
+      <p>Version 1.2.0</p>
+      <p>Automatically detects and converts currency values on web pages to your preferred target currency using reliable exchange rate APIs.</p>
+    </div>
+
+    <div class="about-section">
+      <h3>Developer</h3>
+      <p><strong>Brad Selph</strong></p>
+      <p>
+        <a href="https://github.com/bradselph" target="_blank" class="github-link">
+          <span class="github-icon"></span>
+          github.com/bradselph
+        </a>
+      </p>
+    </div>
+
+    <div class="about-section">
+      <h3>License</h3>
+      <p>This extension is licensed under the <strong>GNU Affero General Public License v3.0 (AGPL-3.0)</strong></p>
+      <p>Free and open source software that respects your freedom.</p>
+    </div>
+
+    <div class="about-section">
+      <h3>API Services</h3>
+      <div class="attribution-list">
+        <p><strong>Exchange Rate Data:</strong></p>
+        <p>
+          <a href="https://www.exchangerate-api.com" target="_blank">Rates By Exchange Rate API</a>
+        </p>
+        <p>
+          <a href="https://github.com/fawazahmed0/currency-api" target="_blank">Fawazahmed0 Currency API</a> (Open Source)
+        </p>
+        <p>
+          <a href="https://github.com/everapihq" target="_blank">FreeCurrency API by EveryAPI</a>
+        </p>
+        <p>
+          <a href="https://open.er-api.com" target="_blank">Open Exchange Rates</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="about-section">
+      <h3>Icons & Assets</h3>
+      <p>Extension icons sourced from:</p>
+      <p>
+        <a href="https://www.iconarchive.com/" target="_blank">IconArchive.com</a>
+      </p>
+      <p class="small-text">Icons used under their respective licenses</p>
+    </div>
+
+    <div class="about-section">
+      <h3>Support</h3>
+      <p>Found a bug or have a feature request?</p>
+      <p>
+        <a href="https://github.com/bradselph/currency-converter-extension/issues" target="_blank">
+          Report issues on GitHub
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+  <script src="popup.js"></script>
+</body>
+
+</html>
