@@ -6,7 +6,7 @@ A browser extension that automatically detects and converts currency values on w
 
 ## Features
 
-**Version**: 1.2.0 | **Compatibility**: Chrome, Edge (Manifest V3)
+**Version**: 1.3.0 | **Compatibility**: Chrome, Edge (Manifest V3)
 
 - **Automatic Detection**: Scans web pages for currency values and symbols
 - **Real-time Conversion**: Converts currencies using multiple reliable APIs

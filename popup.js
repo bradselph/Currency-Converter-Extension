@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   const tabs = document.querySelectorAll('.tab');
   const tabContents = document.querySelectorAll('.tab-content');
 
+  loadManifestInfo();
+
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       const tabName = tab.dataset.tab;
@@ -61,6 +63,64 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
     }
   }, 100);
+
+  async function loadManifestInfo() {
+    try {
+      const manifest = chrome.runtime.getManifest();
+
+      const aboutExtensionName = document.getElementById('about-extension-name');
+      const aboutVersion = document.getElementById('about-version');
+      const aboutDescription = document.getElementById('about-description');
+      const aboutAuthor = document.getElementById('about-author');
+
+      if (aboutExtensionName) {
+        aboutExtensionName.textContent = manifest.name || 'Currency Converter Extension';
+      }
+
+      if (aboutVersion) {
+        aboutVersion.textContent = manifest.version || '1.3.0';
+      }
+
+      if (aboutDescription) {
+        let description = manifest.description || 'Automatically detects and converts currency values on web pages to your preferred target currency using reliable exchange rate APIs.';
+        const developedByIndex = description.indexOf('Developed by');
+        if (developedByIndex !== -1) {
+          description = description.substring(0, developedByIndex).trim();
+        }
+        aboutDescription.textContent = description;
+      }
+
+      if (aboutAuthor) {
+        let author = manifest.author || 'Brad Selph';
+        const parenIndex = author.indexOf('(');
+        if (parenIndex !== -1) {
+          author = author.substring(0, parenIndex).trim();
+        }
+        aboutAuthor.textContent = author;
+      }
+
+      const githubLink = document.querySelector('.github-link');
+      if (githubLink && manifest.homepage_url) {
+        githubLink.href = manifest.homepage_url;
+      }
+
+      const supportLink = document.querySelector('a[href*="issues"]');
+      if (supportLink && manifest.homepage_url) {
+        supportLink.href = `${manifest.homepage_url}/issues`;
+      }
+
+      console.log('Manifest info loaded:', {
+        name: manifest.name,
+        version: manifest.version,
+        description: manifest.description,
+        author: manifest.author,
+        homepage_url: manifest.homepage_url
+      });
+
+    } catch (error) {
+      console.error('Failed to load manifest info:', error);
+    }
+  }
 
   function loadSettings() {
     chrome.storage.sync.get(['targetCurrency', 'exchangerateApiKey', 'freecurrencyApiKey'], (result) => {

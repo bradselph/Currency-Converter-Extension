@@ -1,6 +1,7 @@
 /*
  * Currency Converter Extension - Background Script
- * Copyright (C) 2024 Brad Selph
+ * Copyright (C) 2025 Brad Selph
+ * Version 1.3.0
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by

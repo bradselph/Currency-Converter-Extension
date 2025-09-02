@@ -1,9 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "Currency to USD Converter",
-  "version": "1.2.0",
-  "description": "Convert currency values on webpages to any target currency using reliable exchange rate APIs. Developed by Brad Selph.",
-  "author": "Brad Selph (github.com/bradselph)",
+  "name": "Currency Converter Extension",
+  "version": "1.3.0",
+  "description": "Automatically detects and converts currency values on web pages to your preferred target currency using reliable exchange rate APIs.",
+  "author": "Brad Selph",
+  "homepage_url": "https://github.com/bradselph/currency-converter-extension",
   "permissions": [
     "scripting",
     "activeTab",
