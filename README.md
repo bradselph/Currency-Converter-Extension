@@ -1,6 +1,6 @@
 # Currency Converter Browser Extension
 
-![Extension Icon](icon48.png)
+![Extension Icon](icons/icon48.png)
 
 A browser extension that automatically detects and converts currency values on web pages to your preferred target currency using reliable exchange rate APIs.
 
