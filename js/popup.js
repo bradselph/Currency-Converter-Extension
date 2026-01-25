@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       try {
         await chrome.scripting.executeScript({
           target: { tabId: tab.id },
-          files: ['content.js']
+          files: ['js/content.js']
         });
 
         setTimeout(async () => {
