@@ -38,7 +38,7 @@ let isProcessing = false;
 let pageFullyLoaded = false;
 let conversionQueue = [];
 
-const DEBUG = true;
+const DEBUG = false;
 function debugLog(...args) {
   if (DEBUG) console.log('[Currency Converter]', ...args);
 }
