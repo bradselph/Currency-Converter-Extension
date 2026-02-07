@@ -10,7 +10,7 @@ A browser extension that automatically detects and converts currency values on w
 
 - **Automatic Detection**: Scans web pages for currency values and symbols
 - **Real-time Conversion**: Converts currencies using multiple reliable APIs
-- **Customizable Target**: Choose from 11+ popular currencies
+- **Customizable Target**: Choose from 21 popular target currencies
 - **API Key Support**: Optional premium API keys for enhanced reliability
 - **Fast & Lightweight**: Minimal performance impact
 - **Clean Interface**: Unobtrusive inline conversion display
@@ -35,7 +35,7 @@ The extension automatically detects and converts from these currencies:
 ## Installation
 
 ### From Chrome Web Store
-1. Visit the [Chrome Web Store page](#) (coming soon)
+1. Visit the [Chrome Web Store page](https://chromewebstore.google.com/) (pending review)
 
 ### Manual Installation (Developer Mode)
 1. Download or clone this repository
@@ -71,14 +71,17 @@ The extension uses multiple API sources with fallback support:
 
 ## Screenshots
 
-> *Extension popup showing conversion statistics*
->>![Extension Popup](screenshots/popup.png)
+> *Extension popup showing conversion statistics and detected currencies*
+> ![Popup Overview](screenshots/screenshot_popup_overview.png)
 
-> *Before inline currency conversion on a webpage*
->>![Before Inline Conversion](screenshots/before_inline.png)
+> *Inline currency conversions on a shopping page*
+> ![Inline Conversions](screenshots/screenshot_inline_conversion.png)
 
-> *After inline currency conversion on a webpage*
->>![After Inline Conversion](screenshots/after_inline.png)
+> *Settings tab with target currency and API key configuration*
+> ![Settings](screenshots/screenshot_settings.png)
+
+> *Multiple currencies converted on a travel planning page*
+> ![Multi-Currency](screenshots/screenshot_multi_currency.png)
 
 ## Contributing
 
